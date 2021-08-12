@@ -1,14 +1,18 @@
 import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
+import Main from "./components/Main";
 
 const App = () => {
   return (
-    <div className="">
+    <div className="grid container mx-auto md:grid-cols-3">
       <Header />
-      <main>
+      <main className="md:col-span-2">
         <Switch>
           <Route exact path="/">
-            Welcome
+            <h1 className="text-4xl md:text-6xl text-gray-700 font-semibold p-3">
+              Welcome to the Marvel Cinematic Universe
+            </h1>
+            <Main />
           </Route>
           <Route exact path="/movies/:id">
             Your movie here
