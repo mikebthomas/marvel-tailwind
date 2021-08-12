@@ -10,8 +10,8 @@ const getAllSeries = () => {
 };
 
 const sortByDateAsc = (a, b) => {
-  if (!a.release_date) return 1;
-  if (!b.release_date) return 1;
+  if (!a.release_date && b.release_date) return 1;
+  if (!b.release_date && a.release_date) return -1;
   const date_a = new Date(a.release_date);
   const date_b = new Date(b.release_date);
   if (date_a < date_b) return -1;

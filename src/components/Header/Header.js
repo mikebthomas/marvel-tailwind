@@ -1,20 +1,22 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import logo from "../../assets/logo.svg";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const location = useLocation();
+  const { pathname } = location;
 
   return (
-    <header>
-      <nav>
-        <div>
-          <Link to={"/"}>
+    <header className="md:col-span-1 md:flex md:justify-end">
+      <nav className="text-right py-2 px-6">
+        <div className="flex justify-between items-center">
+          <Link to={"/"} className="w-40 md:w-60 lg:w-72">
             <img src={logo} alt="logo" />
           </Link>
           <div
-            className=""
+            className="px-4 cursor-pointer md:hidden"
             id="burger"
             onClick={() => {
               setShowMenu(!showMenu);
@@ -34,10 +36,19 @@ const Header = () => {
             </svg>
           </div>
         </div>
-        <ul className={`${showMenu ? "" : "hidden"} `}>
-          <li>
-            <Link to={"/movies"}>
-              <span>Movies</span>
+        <ul className={`${showMenu ? "" : "hidden"} md:block`}>
+          <li
+            className={`text-gray-700 py-1 hover:font-bold ${
+              pathname === "/movies" ? "font-bold" : ""
+            }`}
+          >
+            <Link
+              to={"/movies"}
+              className={`menu-link ${
+                pathname === "/movies" ? "border-marvel" : ""
+              }`}
+            >
+              <span className="pr-5">Movies</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -54,9 +65,18 @@ const Header = () => {
               </svg>
             </Link>
           </li>
-          <li>
-            <Link to={"/series"}>
-              <span>Series</span>
+          <li
+            className={`text-gray-700 py-1 hover:font-bold ${
+              pathname === "/series" ? "font-bold" : ""
+            }`}
+          >
+            <Link
+              to={"/series"}
+              className={`menu-link ${
+                pathname === "/series" ? "border-marvel" : ""
+              }`}
+            >
+              <span className="pr-5">Series</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
