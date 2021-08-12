@@ -13,6 +13,8 @@ const Poster = ({
   box_office,
   directed_by,
   type,
+  number_seasons,
+  number_episodes,
 }) => {
   return (
     <div className="border-marvel border-2 shadow-md rounded-md overflow-hidden flex flex-col">
@@ -20,7 +22,7 @@ const Poster = ({
         {phase && (
           <span className="rounded-md bg-marvel text-white p-2 absolute top-2 left-2">{`Phase: ${phase}`}</span>
         )}
-        {box_office !== "0" && (
+        {box_office && box_office !== "0" && (
           <span className="rounded-lg bg-green-400 text-white p-2 absolute top-2 right-2 align-middle">
             <span className="align-text-bottom">
               <svg
@@ -49,7 +51,13 @@ const Poster = ({
         {directed_by && <div>Directed by: {directed_by}</div>}
         {release_date && <div>Release date: {release_date}</div>}
         {!release_date && <div>Coming soon</div>}
-        {duration !== 0 && <div>Duration: {duration}</div>}
+        {duration !== null && duration !== 0 && <div>Duration: {duration}</div>}
+        {number_seasons && number_seasons !== 0 && (
+          <div>Number of seasons: {number_seasons}</div>
+        )}
+        {number_episodes && number_episodes !== 0 && (
+          <div>Number of episodes: {number_episodes}</div>
+        )}
         <div className="block text-center my-2 ">
           <Link
             className="block p-4 rounded-md bg-marvel hover:bg-red-800 transition duration-500 ease-in-out text-white border-2 border-red-800 shadow-lg"

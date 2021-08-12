@@ -1,6 +1,8 @@
 import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Main from "./components/Main";
+import Movies from "./components/Movies";
+import Series from "./components/Series";
 
 const App = () => {
   return (
@@ -18,13 +20,13 @@ const App = () => {
             Your movie here
           </Route>
           <Route exact path="/movies">
-            All the MCU movies here
+            <Movies />
           </Route>
           <Route exact path="/series/:id">
             Your series here
           </Route>
           <Route exact path="/series">
-            All the MCU series here
+            <Series />
           </Route>
         </Switch>
       </main>
