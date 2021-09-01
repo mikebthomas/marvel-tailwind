@@ -63,7 +63,7 @@ const Poster = ({
             className="block p-4 rounded-md bg-marvel hover:bg-red-800 transition duration-500 ease-in-out text-white border-2 border-red-800 shadow-lg"
             to={`/${type}/${id}`}
           >
-            More info
+            Updating text
           </Link>
         </div>
       </div>
